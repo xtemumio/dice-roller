@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/label_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="34sp"
@@ -24,6 +24,6 @@
         android:text="@string/roll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/label_dice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
