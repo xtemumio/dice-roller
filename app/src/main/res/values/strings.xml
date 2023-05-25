@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Dice Roller</string>
     <string name="roll">Roll</string>
-    <string name="label_dice2">TextView</string>
+    <string name="label_dice2"></string>
     <string name="button2">Roll2</string>
+    <string name="immagine_dado1">immagine_dado1</string>
+    <string name="immagine_dado2">immagine_dado2</string>
 </resources>
