@@ -23,29 +23,36 @@ class MainActivity : AppCompatActivity() {
 
         // Ottieni il riferimento al pulsante di lancio dall'interfaccia utente
         val rollButton: Button = findViewById(R.id.button)
-
+        val rollButton2: Button = findViewById(R.id.button2)
         // Imposta il listener per il pulsante di lancio
         rollButton.setOnClickListener {
-            rollDice()
+            rollDice(6,R.id.label_dice)
+        }
+        rollButton2.setOnClickListener {
+            rollDice(10,R.id.label_dice2 )
         }
     }
 
     /**
      * rollDice genera un valore casuale simulando il lancio di un dado e lo visualizza nella TextView.
      */
-    private fun rollDice() {
+    private fun rollDice(number: Int, idLabel: Int) {
         // Crea un oggetto Dice con il numero di facce specificato
-        val dice = Dice(6)
+        val dice = Dice(number)
 
         // Esegue il lancio del dado
         val diceRoll = dice.roll()
 
+
         // Ottieni il riferimento alla TextView per il risultato del lancio
-        val resultTextView: TextView = findViewById(R.id.label_dice)
+        val resultTextView: TextView = findViewById(idLabel)
+
 
         // Imposta il risultato del lancio nella TextView
         resultTextView.text = diceRoll.toString()
+
     }
+
 
     /**
      * Dice è una classe interna che rappresenta un dado con un numero specificato di facce.
