@@ -1,6 +1,7 @@
 package com.example.diceroller
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
  * Estende AppCompatActivity per fornire funzionalità di base.
  */
 class MainActivity : AppCompatActivity() {
+    val TAG = "MainActivity"
+
 
     /**
      * Il metodo onCreate viene chiamato quando l'attività viene creata.
@@ -19,29 +22,33 @@ class MainActivity : AppCompatActivity() {
      * @param savedInstanceState L'istanza di Bundle contenente lo stato precedente dell'attività.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.i(TAG, "INIZIO DEL PROGRAMMA")
 
         // Ottieni il riferimento al pulsante di lancio dall'interfaccia utente
         val rollButton: Button = findViewById(R.id.button)
         val rollButton2: Button = findViewById(R.id.button2)
 
-        rollDice(6,R.id.label_dice,R.id.imageView)
-        rollDice(6,R.id.label_dice2,R.id.imageView2 )
+        rollDice(6, R.id.label_dice, R.id.imageView)
+        rollDice(6, R.id.label_dice2, R.id.imageView2)
 
         // Imposta il listener per il pulsante di lancio
         rollButton.setOnClickListener {
-            rollDice(6,R.id.label_dice,R.id.imageView)
+            Log.i(TAG, "CLICK DEL PRIMO ROLL BUTTON")
+            rollDice(6, R.id.label_dice, R.id.imageView)
         }
         rollButton2.setOnClickListener {
-            rollDice(6,R.id.label_dice2,R.id.imageView2 )
+            Log.i(TAG, "CLICK DEL SECONDO ROLL BUTTON")
+            rollDice(6, R.id.label_dice2, R.id.imageView2)
         }
     }
 
     /**
      * rollDice genera un valore casuale simulando il lancio di un dado e lo visualizza nella TextView.
      */
-    private fun rollDice(number: Int, idLabel: Int,idImage :Int) {
+    fun rollDice(number: Int, idLabel: Int, idImage: Int) {
         // Crea un oggetto Dice con il numero di facce specificato
         val dice = Dice(number)
 
@@ -75,14 +82,17 @@ class MainActivity : AppCompatActivity() {
      * Dice è una classe interna che rappresenta un dado con un numero specificato di facce.
      */
     private class Dice(private val numSides: Int) {
-
+        val TAG2 = "Dice"
         /**
          * roll genera un valore casuale simulando il lancio del dado.
          *
          * @return Il valore casuale ottenuto dal lancio del dado.
          */
         fun roll(): Int {
-            return (1..numSides).random()
+            val pippo= (1..numSides).random()
+            Log.d(TAG2, "$pippo")
+            return pippo
+
         }
     }
 }
